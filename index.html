@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Stormglass Weather</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="top">
+        <a class="brand" href="./"
+          ><span class="logo">S</span
+          ><span
+            ><strong>STORMGLASS</strong
+            ><small>ATMOSPHERIC INTELLIGENCE</small></span
+          ></a
+        >
+        <div class="actions">
+          <button class="unit" id="unit">°C / °F</button
+          ><button class="icon" id="refresh" aria-label="Refresh current weather" title="Refresh">↻</button
+          ><button class="icon" id="locate" aria-label="Use my location">
+            ◎
+          </button>
+        </div>
+      </header>
+      <section class="hero">
+        <div>
+          <p class="kicker">LIVE WEATHER / WORLDWIDE</p>
+          <h1>Read the sky.<br /><span>Plan the day.</span></h1>
+        </div>
+        <div class="search-area">
+          <label for="query">Search a city</label>
+          <div class="search">
+            <b>⌕</b
+            ><input
+              id="query"
+              autocomplete="off"
+              placeholder="Try Delhi, London, Tokyo…"
+            /><button id="clear" aria-label="Clear">×</button>
+          </div>
+          <div class="suggest" id="suggest" hidden></div>
+        </div>
+      </section>
+      <div class="status" id="status" role="status"></div>
+      <section class="grid">
+        <article class="card">
+          <div class="now-head">
+            <div>
+              <p class="place" id="place">Delhi, India</p>
+              <span class="sub" id="updated">Loading live conditions…</span>
+            </div>
+            <button class="star" id="save" aria-label="Save city">☆</button>
+          </div>
+          <div class="now-main">
+            <div>
+              <div class="temp">
+                <span id="temperature">--</span><sup id="unitLabel">°C</sup>
+              </div>
+              <p class="condition" id="condition">Connecting to the sky</p>
+              <span class="sub"
+                ><b id="hi">--</b>° / <b id="lo">--</b>° · Feels
+                <b id="feels">--</b>°</span
+              >
+            </div>
+            <div class="orb" id="weatherIcon">◌</div>
+          </div>
+          <div class="facts">
+            <div><span>HUMIDITY</span><b id="humidity">--%</b></div>
+            <div><span>WIND</span><b id="wind">-- km/h</b></div>
+            <div><span>RAIN CHANCE</span><b id="rain">--%</b></div>
+              <div><span>SUN WINDOW</span><b id="sunrise">--:--</b></div>
+          </div>
+        </article>
+        <aside class="card">
+          <div class="title">
+            <div>
+              <p class="kicker">QUICK ACCESS</p>
+              <h2>Saved cities</h2>
+            </div>
+            <span id="savedCount">0/5</span>
+          </div>
+          <div class="saved-list" id="saved"></div>
+          <p class="sub" id="savedEmpty">
+            Save up to five cities for quick access.
+          </p>
+        </aside>
+        <article class="card chart">
+          <div class="title">
+            <div>
+              <p class="kicker">NEXT 24 HOURS</p>
+              <h2>Temperature curve</h2>
+            </div>
+            <span id="zone">Local time</span>
+          </div>
+          <div class="svg-wrap">
+            <svg
+              id="chart"
+              viewBox="0 0 720 175"
+              aria-label="24 hour temperature chart"
+            ></svg>
+          </div>
+          <div class="hours" id="hours"></div>
+        </article>
+        <article class="card forecast">
+          <div class="title">
+            <div>
+              <p class="kicker">OUTLOOK</p>
+              <h2>Seven-day forecast</h2>
+            </div>
+            <span>Open-Meteo</span>
+          </div>
+          <div class="days" id="days"></div>
+        </article>
+      </section>
+      <footer>
+        Weather data by
+        <a href="https://open-meteo.com/" target="_blank" rel="noreferrer"
+          >Open-Meteo</a
+        >
+        · Cached readings are labelled
+      </footer>
+      <footer class="sudesh-credit" style="position:relative;margin-top:42px;padding:32px 24px 18px;border:1px solid #5261812b;border-radius:18px;background:linear-gradient(135deg,#050a15f2,#071525eb 55%,#16091ceb);color:#91a0b9;font:500 12px/1.7 Inter,system-ui,sans-serif;overflow:hidden">
+        <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.8%,#22d3ee14 50%,transparent 50.2%),linear-gradient(#a855f70d 1px,transparent 1px);background-size:420px 100%,100% 46px;pointer-events:none"></div>
+        <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:42px;align-items:start">
+          <section>
+            <strong style="display:block;color:#f8fafc;font:800 20px/1.1 ui-monospace,monospace;letter-spacing:.04em"><span style="color:#22d3ee">[</span><span style="color:#a855f7">SM</span><span style="color:#22d3ee">]</span></strong>
+            <p style="max-width:430px;margin:16px 0 10px;color:#9eabc1;font-size:14px">Learning by building — from modern web experiences to strong software-engineering fundamentals.</p>
+            <small style="display:block;color:#71829d;font:700 9px ui-monospace,monospace;letter-spacing:.2em">B.TECH IT STUDENT · FULL STACK DEVELOPER · BUILDER</small>
+            <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+              <a aria-label="GitHub" href="https://github.com/sudesh4545" target="_blank" rel="noreferrer" style="display:grid;place-items:center;width:40px;height:40px;border:1px solid #60708e55;border-radius:11px;color:#dce8ff;text-decoration:none">GH</a>
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/in/sudeshmehar3/" target="_blank" rel="noreferrer" style="display:grid;place-items:center;width:40px;height:40px;border:1px solid #60708e55;border-radius:11px;color:#dce8ff;text-decoration:none">in</a>
+              <a aria-label="Email" href="mailto:sudeshmehar3@gmail.com" style="display:grid;place-items:center;width:40px;height:40px;border:1px solid #60708e55;border-radius:11px;color:#dce8ff;text-decoration:none">@</a>
+              <a aria-label="Portfolio" href="https://sudesh4545.github.io/sudesh-portfolio/" target="_blank" rel="noreferrer" style="display:grid;place-items:center;width:40px;height:40px;border:1px solid #60708e55;border-radius:11px;color:#dce8ff;text-decoration:none">↗</a>
+            </div>
+          </section>
+          <section>
+            <small style="display:block;color:#f8fafc;font:800 9px ui-monospace,monospace;letter-spacing:.2em">GET IN TOUCH</small>
+            <a href="mailto:sudeshmehar3@gmail.com" style="display:block;margin-top:17px;color:#9eabc1;text-decoration:none;font-size:14px">sudeshmehar3@gmail.com</a>
+            <p style="margin:12px 0;color:#9eabc1;font-size:14px">New Delhi, India</p>
+            <p style="display:flex;align-items:center;gap:8px;margin:12px 0;color:#bad8cb"><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1ee6a7;box-shadow:0 0 14px #1ee6a7"></i>Open to internships &amp; collaboration</p>
+            <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:20px"><span style="padding:3px 9px;border:1px solid #52618144;border-radius:5px;font:600 9px ui-monospace,monospace">JavaScript</span><span style="padding:3px 9px;border:1px solid #52618144;border-radius:5px;font:600 9px ui-monospace,monospace">HTML</span><span style="padding:3px 9px;border:1px solid #52618144;border-radius:5px;font:600 9px ui-monospace,monospace">CSS</span></div>
+          </section>
+        </div>
+        <div style="position:relative;margin-top:28px;padding-top:16px;border-top:1px solid #5261812b;color:#65738c;font-size:10px">© 2026 Sudesh Mehar. Built with code, curiosity and creativity.</div>
+      </footer>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
+
+
